@@ -38,7 +38,7 @@ void bx_hdemu_c::init(void)
 {
   char name[16];
 
-  BX_DEBUG(("Init $Id: hdemu.cc,v 1.5 2009-02-06 03:48:32 zeus Exp $"));
+  BX_DEBUG(("Init $Id: hdemu.cc,v 1.34 2008/01/26 22:24:02 sshwarts Exp $"));
 
   sprintf(name, "Hd emu");
   /* hdemu i/o ports */

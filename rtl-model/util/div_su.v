@@ -35,16 +35,16 @@
 
 //  CVS Log
 //
-//  $Id: div_su.v,v 1.7 2009-02-06 03:48:26 zeus Exp $
+//  $Id: div_su.v,v 1.2 2002/10/31 13:54:58 rherveille Exp $
 //
-//  $Date: 2009-02-06 03:48:26 $
-//  $Revision: 1.7 $
-//  $Author: zeus $
+//  $Date: 2002/10/31 13:54:58 $
+//  $Revision: 1.2 $
+//  $Author: rherveille $
 //  $Locker:  $
 //  $State: Exp $
 //
 // Change History:
-//               $Log: not supported by cvs2svn $
+//               $Log: div_su.v,v $
 //               Revision 1.2  2002/10/31 13:54:58  rherveille
 //               Fixed a bug in the remainder output of div_su.v
 //

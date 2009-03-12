@@ -283,6 +283,7 @@ module decode (
   wire [1:0] seg;
   reg  [`SEQ_ADDR_WIDTH-1:0] seq;
   reg  dive;
+  reg  old_ext_int;
 
   // Module instantiations
   opcode_deco opcode_deco0 (opcode, modrm, rep, sop_l, base_addr, need_modrm,
@@ -316,10 +317,12 @@ module decode (
       : ((intr & ifl & exec_st & end_seq) ? 1'b1
         : (ext_int ? !end_seq : 1'b0));
 
+  // old_ext_int
+  always @(posedge clk) old_ext_int <= rst ? 1'b0 : ext_int;
+
   // inta
   always @(posedge clk)
-    if (rst) inta <= 1'b0;
-    else inta <= intr & ext_int;
+    inta <= rst ? 1'b0 : (!old_ext_int & ext_int);
 
 endmodule
 
@@ -917,18 +920,7 @@ module opcode_deco (
           dst <= { 1'b0, rm };
         end
 
-      8'b1001_0000: // 90h: nop
-        begin
-          seq_addr <= `NOP;
-          need_modrm <= 1'b0;
-          need_off <= 1'b0;
-          need_imm <= 1'b0;
-          imm_size <= 1'b0;
-          src <= 4'b0;
-          dst <= 4'b0;
-        end
-
-      8'b1001_0xxx: // xchg acum
+      8'b1001_0xxx: // nop, xchg acum
         begin
           seq_addr <= `XCHRRW;
           need_modrm <= 1'b0;

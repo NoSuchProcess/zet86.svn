@@ -1,5 +1,5 @@
 /////////////////////////////////////////////////////////////////////////
-// $Id: devices.cc,v 1.5 2009-02-06 03:48:32 zeus Exp $
+// $Id: devices.cc,v 1.121 2008/04/17 14:39:32 sshwarts Exp $
 /////////////////////////////////////////////////////////////////////////
 //
 //  Copyright (C) 2002  MandrakeSoft S.A.
@@ -124,7 +124,7 @@ void bx_devices_c::init(BX_MEM_C *newmem)
   unsigned i;
   const char def_name[] = "Default";
 
-  BX_DEBUG(("Init $Id: devices.cc,v 1.5 2009-02-06 03:48:32 zeus Exp $"));
+  BX_DEBUG(("Init $Id: devices.cc,v 1.121 2008/04/17 14:39:32 sshwarts Exp $"));
   mem = newmem;
 
   /* set no-default handlers, will be overwritten by the real default handler */
